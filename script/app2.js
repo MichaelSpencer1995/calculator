@@ -1,5 +1,4 @@
 
-
 var buttons = document.getElementsByClassName('btn');
 
 for (var i = 0; i < buttons.length; i++) {
@@ -7,12 +6,75 @@ for (var i = 0; i < buttons.length; i++) {
     
 }
 
-console.log(buttons);
-
 var solvedValue = '';
 var currentNumber = '';
 
+window.addEventListener('keypress', findWhichKey);
+
+function findWhichKey(key) {
+    if(key.keyCode == '96' || key.keyCode == '48') {
+        handleButton.call(buttons[13]); // 0
+
+    } else if(key.keyCode == '99' || key.keyCode == '51') {
+        handleButton.call(buttons[12]); // 3
+        
+    } else if(key.keyCode == '98' || key.keyCode == '50') {
+        handleButton.call(buttons[11]); // 2
+
+    } else if(key.keyCode == '97' || key.keyCode == '49') {
+        handleButton.call(buttons[10]); // 1
+
+    } else if(key.keyCode == '107') {
+        handleButton.call(buttons[9]); //plus
+
+    } else if(key.keyCode == '102' || key.keyCode == '54') {
+        handleButton.call(buttons[8]); // 6
+
+    } else if(key.keyCode == '101' || key.keyCode == '53') {
+        handleButton.call(buttons[7]); // 5
+
+    } else if(key.keyCode == '100' || key.keyCode == '52') {
+        handleButton.call(buttons[6]); // 4
+
+    } else if(key.keyCode == '109') {
+        handleButton.call(buttons[5]); // minus
+
+    } else if(key.keyCode == '105' || key.keyCode == '57') {
+        handleButton.call(buttons[4]); // 9
+
+    } else if(key.keyCode == '104' || key.keyCode == '58') {
+        handleButton.call(buttons[3]); // 8
+        
+    } else if(key.keyCode == '103' || key.keyCode == '59') {
+        handleButton.call(buttons[2]); // 7
+        
+    } else if(key.keyCode == '106') {
+        handleButton.call(buttons[1]); // multiply
+        
+    } else if(key.keyCode =='111') {
+        handleButton.call(buttons[0]); // divide
+        
+    } else if(key.keyCode == '110') {
+        handleButton(); // decimal
+        
+    } else if(key.keyCode =='13') {
+        handleButton(); // calculate
+        
+    } else if(key.keyCode == '187') {
+        handleButton(); // calculate
+        
+    } else if(key.keyCode == '8') {
+        handleButton(); // calculate
+        
+    }
+}
+
+console.log(buttons);
+
+
+
 function handleButton () {
+    // updateVariables();
     document.getElementById("miniDisplay").scrollTop = document.getElementById("miniDisplay").scrollHeight;
     document.getElementById("display").scrollTop = document.getElementById("display").scrollHeight;
    
@@ -24,8 +86,8 @@ function handleButton () {
     var isBackspace = character.match('CE');
     var isClearAll = character.match('AC');
     var isEquals = character.match('=');
-
-    var latestNumbers = miniDisplay.value.replace(/\+/g, '+ ').replace(/-/g, '- ').replace(/\*/g, '* ').replace(/\//g, '/ ').split(' ');
+    
+    var latestNumbers = miniDisplay.value.replace(/\+/g, ' + ').replace(/-/g, ' - ').replace(/\*/g, ' * ').replace(/\//g, ' / ').split(' ');
 
     console.log('latest numbers: ' + latestNumbers);
 
@@ -33,7 +95,7 @@ function handleButton () {
         handleNumber(isNumerical);
         
     } else if (isOperator) {
-        handleOperator(isOperator);
+        handleOperator(isOperator, latestNumbers);
 
     } else if (isDecimal) {
         handleDecimal(latestNumbers);
@@ -51,10 +113,12 @@ function handleButton () {
         console.log('error');
 
     }
-
+    console.log('happens every click');
 }
 
 
+
+    
 // handle number
 function handleNumber(numberToPrint) {
 
@@ -86,7 +150,7 @@ function handleNumber(numberToPrint) {
 
 
 // handle operator
-function handleOperator(operatorToPrint) {
+function handleOperator(operatorToPrint, numberArr) {
     
     var lastWasOperator = display.value.match(/[+|\-|\/|*]/) || miniDisplay.value[miniDisplay.value.length-1].match(/[+|\-|\/|*]/);
     var displayEmpty = display.value === '';
@@ -117,7 +181,8 @@ function handleOperator(operatorToPrint) {
 
     display.value = operatorToPrint;
     miniDisplay.value += operatorToPrint;
-    currentNumber = '';
+    currentNumber = numberArr[numberArr.length-1];
+    // currentNumber = '';
 
     console.log('passed/printed operator');
 
@@ -170,7 +235,6 @@ function handleBackspace() {
 
 // handle clear all
 function handleClearAll() {
-    // stateSolved = false;
     display.value = '';
     miniDisplay.value = '';
     currentNumber = '';
@@ -205,8 +269,8 @@ function handleEquals(latestNumbers) {
     console.log('formatted equation: ' + formattedEquation);
     // calculate
 
-    currentNumber = '';
-
+    // currentNumber = '';
+    currentNumber = latestNumbers[latestNumbers.length-1];
     solvedValue = eval(formattedEquation);
     display.value = '';
     miniDisplay.value = solvedValue;
@@ -225,3 +289,4 @@ function handleEquals(latestNumbers) {
     }
 
 }
+

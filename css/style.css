@@ -1,9 +1,7 @@
 body {
-    background-color: rgb(118, 133, 156);
-    padding-top: 1.2em;
+    padding-top: 2.2em;
+    background: radial-gradient(rgb(81, 114, 158),rgba(13, 26, 42, 0.794));
 }
-
-
 
 
 .calculator {
@@ -20,7 +18,7 @@ body {
     width: 80%;
     height: 720px;
     background: linear-gradient(120deg, rgb(145, 145, 145), 
-    rgb(36, 36, 36));
+    rgb(40, 40, 40));
     box-shadow: inset -10px -10px 60px #313131,
     20px 10px 100px rgb(0, 0, 0);
 }
@@ -54,22 +52,22 @@ body {
     position: relative;
     bottom: 15px;
     box-shadow: inset 0px 0px 20px 1px rgba(49, 49, 49, 0.698);
-    background-color: rgb(116, 116, 116);
+    background-color: rgb(121, 121, 121);
 }
 
 #display {
-    border-radius: 20px;
+    border-radius: 18px;
     border-color: rgba(139, 103, 20, 0.664);
     background-color: rgb(202, 202, 202);
     box-shadow:0px 0px 20px 1px rgba(77, 77, 77, 0.808);
     color: rgb(65, 65, 65);
-    height: 60px;
+    height: 54px;
     width: 70%;
     font-size: 30px;
     font-family: 'Abel', sans-serif;
     padding: 0 1em;
     letter-spacing: .2rem;
-    background: linear-gradient(to bottom,  #eeeeee9f 31%,#ffffffd3 100%);
+    background: linear-gradient(to bottom#949494c0,#eeeeee9f 31%);
     resize: none;
     outline: none;
 }
@@ -116,25 +114,24 @@ body {
     height: 52%;
     width: 84%;
     position: relative;
-    bottom: 25px;
-    left: 1px;
+    bottom: 15px;
+    left: 2px;
 }
 
 
 button {
-    padding-right: 9px;
-    padding-bottom: 9px; 
+    padding-bottom: 6px;
     font-family: 'Play', sans-serif;
     font-size: 20px;
-    border: rgb(143, 139, 131) 2px solid;
-    border-radius: 15px;
-    box-shadow: inset -1px -5px 15px #696969,  
+    border: rgb(165, 163, 161) 3px solid;
+    border-radius: 20px;
+    box-shadow: inset 0px -3px 7px 5px #a0a0a09b,  
     0px 5px 1px 0px rgba(32, 32, 32, 0.815);
     outline: none;
     cursor: pointer;
-	background-image: linear-gradient(rgba(177, 177, 177, 0.842) 28%, 
-    rgb(161, 161, 161) 40%,
-    rgba(168, 168, 168, 0.829) 54%);
+    background-image: radial-gradient(rgb(202, 202, 202) 35%, 
+    rgba(189, 189, 189, 0.774) 40%,
+    rgba(170, 170, 170, 0.842)70%);
     -webkit-text-fill-color: rgba(65, 65, 65, 0.863);
     font-weight: bold;
 }
@@ -147,8 +144,26 @@ button:active {
 }
 
 .goldText {
-    -webkit-text-fill-color: rgb(165, 129, 56);
+    -webkit-text-fill-color: rgb(194, 147, 53);
 }
+
+.roundTL {
+    border-top-left-radius: 30px;
+}
+
+.roundTR {
+    border-top-right-radius: 30px;
+}
+
+.roundBL {
+    border-bottom-left-radius: 30px;
+}
+
+.roundBR {
+    border-bottom-right-radius: 30px;
+}
+
+
 /* ac ce */
 
 #zero {
@@ -301,6 +316,22 @@ button:active {
     #equals {
         grid-column: 1/13;
         grid-row: 8/9;
+    }
+    
+    .roundTL {
+        border-top-left-radius: 0px;
+    }
+    
+    .roundTR {
+        border-top-right-radius: 0px;
+    }
+    
+    .roundBL {
+        border-bottom-left-radius: 0px;
+    }
+    
+    .roundBR {
+        border-bottom-right-radius: 0px;
     }
     
     
