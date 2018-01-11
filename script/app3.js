@@ -13,7 +13,8 @@ for (var i = 0; i < buttons.length; i++) { // create buttons
 function updateLatestNums() { //upadate formatted blocks and numbers every button click
     formattedBlocks = miniDisplay.value.replace(/\+/g, '+ ').replace(/\-/g, '- ').replace(/\//g, '/ ').replace(/\*/g, '* ').split(' ').filter(function(val) {return val !== ''});
     numbers = miniDisplay.value.replace(/\+/g, ' ').replace(/\-/g, ' ').replace(/\//g, ' ').replace(/\*/g, ' ').split(' ').filter(function(val) {return val !== ''});
-    
+    console.log(formattedBlocks);
+    console.log(numbers);
 }
 
 

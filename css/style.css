@@ -16,7 +16,6 @@ body {
     border-right: rgba(37, 37, 37, 0.877) 4px solid;
     max-width: 320px;
     width: 80%;
-    height: 720px;
     background: linear-gradient(120deg, rgb(145, 145, 145), 
     rgb(40, 40, 40));
     box-shadow: inset -10px -10px 60px #313131,
@@ -24,6 +23,7 @@ body {
 }
 
 #branding {
+    padding-bottom: 25px;
     font-weight: bold;
     text-align: center;
     font-size: 22px;
@@ -31,9 +31,9 @@ body {
     bottom: 2px;
     font-family: 'Orbitron', sans-serif;
 	text-transform: uppercase;
-	background-image: linear-gradient(rgba(241, 208, 19, 0.842) 28%, 
-    rgba(255, 202, 43, 0.671) 40%,
-    rgba(212, 157, 3, 0.829) 54%);
+	background-image: linear-gradient(rgba(241, 208, 19, 0.74) 28%, 
+    rgba(212, 149, 30, 0.746) 40%,
+    rgba(255, 187, 0, 0.671) 54%);
 	-webkit-background-clip:text;
 	-webkit-text-fill-color: transparent;
 	letter-spacing: .4rem;
@@ -112,19 +112,20 @@ body {
     grid-column-gap: 1em;
     grid-row-gap: 1em;
     height: 52%;
-    width: 84%;
+    width: 90%;
     position: relative;
     bottom: 15px;
-    left: 2px;
+    left: 4px;
+    padding-top: 40px;
 }
 
 
 button {
-    padding-bottom: 6px;
+    padding: 14px;
     font-family: 'Play', sans-serif;
     font-size: 20px;
     border: rgb(165, 163, 161) 3px solid;
-    border-radius: 20px;
+    border-radius: 17px;
     box-shadow: inset 0px -3px 7px 5px #a0a0a09b,  
     0px 5px 1px 0px rgba(32, 32, 32, 0.815);
     outline: none;
@@ -198,7 +199,7 @@ button:active {
 @media (max-width: 400px) {
     #branding {
         letter-spacing: .1rem;
-        bottom: 5px;
+        top: 17px;
     }
     
     .displayContainer {
@@ -209,25 +210,30 @@ button:active {
     }
     
     #display {
-        width: 71%;
+        width: 72%;
         border-radius: 5px;
+        position: relative;
+        bottom: 8px;
     }
     
     #miniDisplay {
         width: 78%;
         border-radius: 5px;
+        position: relative;
+        bottom: 10px;
     }
     
     button {
         border-radius: 4px;
+        padding: 5px;
     }
     
     #btn-grid {
         grid-template-columns:repeat(12, 1fr);
         grid-gap: .3em;
-        width: 90%;
+        padding: 0em;
         bottom: 40px;
-        
+        /* width: 90%; */
     }
     
     body {
@@ -235,8 +241,9 @@ button:active {
     }
     
     .calculator {
-        border-radius: 20px;
-        height: 560px;
+        width: 100%;
+        padding: 0;
+        border-radius: 0px;
         justify-content: space-between;
     }
     
